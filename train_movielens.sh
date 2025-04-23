@@ -1,0 +1,21 @@
+export CUDA_VISIBLE_DEVICES=2,3
+python main.py \
+--mode train \
+--stage teacher_sft \
+--batch_size 8 \
+--accumulate_grad_batches 16 \
+--dataset movielens_data \
+--data_dir ./hf_data/movielens \
+--cans_num 20 \
+--prompt_path ./prompt/movie.txt \
+--rec_embed SASRec \
+--llm_tuning lora \
+--llm_path ./hf_model \
+--rec_model_path ./rec_model/movielens.pt \
+--ckpt_dir ./checkpoints/movielens_llama2_peft/ \
+--output_dir ./output/movielens_llama2_peft/ \
+--log_dir movielens_llama2_logs \
+--lr_warmup_start_lr 8e-6 \
+--lr 8e-4 \
+--lr_decay_min_lr 8e-6 \
+--max_epochs 5

@@ -1,0 +1,22 @@
+export CUDA_VISIBLE_DEVICES=3
+python main_test.py \
+--mode test \
+--stage distillation_stage_prelim \
+--batch_size 1 \
+--accumulate_grad_batches 1 \
+--dataset movielens_data \
+--data_dir ./hf_data/movielens \
+--cans_num 20 \
+--prompt_path ./prompt/movie.txt \
+--rec_embed SASRec \
+--llm_tuning lora \
+--llm_path ./llama3_1b \
+--rec_model_path ./rec_model/movielens.pt \
+--ckpt_path /data1/chenxiao/LLaRA/checkpoints/movielens_llama3-1b_peft/epoch=03-metric=0.333.ckpt \
+--ckpt_head_path /data/cx/llara_ckpt/movielens_prelim10/epoch=00-metric=0.362.ckpt \
+--output_dir /data/cx/llara_ckpt/output/movielens/ \
+--log_dir /data/cx/llara_ckpt/movielens_logs \
+--lr_warmup_start_lr 8e-6 \
+--lr 8e-4 \
+--lr_decay_min_lr 8e-6 \
+--max_epochs 1

@@ -3,9 +3,11 @@ checkpoints/*
 tinyllama/*
 hf_data/*
 hf_model/*
-llama3-8b/*
-llama3-1b/*
+llama3_8b/*
+llama3_1b/*
 output/*
 __pycache__
 ref
 *ckpt
+drawfigs/*
+.history

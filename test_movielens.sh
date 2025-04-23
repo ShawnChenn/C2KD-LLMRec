@@ -1,0 +1,21 @@
+export CUDA_VISIBLE_DEVICES=7
+python main_test.py \
+--stage teacher_sft \
+--mode test \
+--batch_size 1 \
+--accumulate_grad_batches 1 \
+--dataset  movielens_data \
+--data_dir ./hf_data/movielens \
+--cans_num 20 \
+--prompt_path ./prompt/movie.txt \
+--rec_embed SASRec \
+--llm_tuning lora \
+--llm_path ./tinyllama \
+--rec_model_path ./rec_model/movielens.pt \
+--ckpt_path /data1/chenxiao/LLaRA/checkpoints/movielens_tinyllama_peft/epoch=04-metric=0.417.ckpt \
+--output_dir ./output/mv/ \
+--log_dir mv_logs \
+--lr_warmup_start_lr 7e-6 \
+--lr 7e-4 \
+--lr_decay_min_lr 7e-6 \
+--max_epochs 1

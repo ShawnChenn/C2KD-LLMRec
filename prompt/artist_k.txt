@@ -1,0 +1,1 @@
+This user has listened to [HistoryHere] in the previous. Given the following 10 music artist names, [CansHere], recommend three different artists for this user to listen to next. The artist names you recommend are 
